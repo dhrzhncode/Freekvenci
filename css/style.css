@@ -1,0 +1,417 @@
+@font-face {
+    font-family: "CubaoWide";
+    src: url("../assets/fonts/cubao_wide.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "NullFont";
+    src: url("../assets/fonts/null.otf") format("opentype");
+}
+@font-face {
+    font-family: "ClaireMono";
+    src: url("../assets/fonts/clairemono.otf") format("opentype");
+}
+
+:root{
+    --primary: rgb(51, 255, 0);
+    --secondary: rgb(255, 123, 35);
+}
+.fake-scrollbar {
+    position: fixed;
+    top: 50px;
+    right: 5px;           /* distance from screen edge */
+    width: 6px;
+    height: 100vh;
+    background: transparent;
+    /* pointer-events: none; */
+    z-index: 1000;
+}
+.fake-thumb {
+    position: absolute;
+    top: 1000;
+    left: 0;
+    width: 100%;
+    border-radius: 999px;
+    background: #00612c;
+    top: var(--thumb-top, 0px);
+    height: var(--thumb-height, 40px);
+}
+.fake-thumb:hover{
+    background-color: #0a801d;
+    scale: 1.6 1;
+}
+html, body {
+    scrollbar-width: none;       /* Firefox */
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+
+
+body{
+    padding: 0;
+    margin:0;
+    background-color: black;
+    color: rgb(255, 255, 255);
+    overflow-x: hidden;
+}
+
+.top{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100.5%;
+    height: fit-content;
+    overflow: hidden;
+}
+
+#headT{
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-family: "CubaoWide", sans-serif;
+    font-size: 1.5rem;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    margin: 0;
+    padding: 10px;
+    width: 98%;
+    backdrop-filter: blur(10px);
+}
+#logo{
+    position: relative;
+    height: 25px;
+    margin: -5px;
+    margin-right: 5px;
+    /* img{
+        position: relative;
+        height: 25px;
+    } */
+}
+
+.content{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: auto;
+    min-width: 600px;
+    /* margin: 120px auto; */
+    font-family: 'ClaireMono';
+}
+.intro_content{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    /* min-width: 430px; */
+    /* width: fit-content; */
+    gap: 20px;
+    padding: 15px 30px;
+    background-color: rgb(0, 46, 6);
+    border-radius: 20px;
+}
+.id_Card{
+    height: 45vh;
+    width: 45vh;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: aliceblue;
+    background: url("../assets/logo/FREEK_20240805_182816_0000.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.id_content{
+    color: aliceblue;
+    width: 45vh;
+    font-size: 1.15rem;
+}
+
+.tabBg{
+    background-color: rgba(61, 61, 61, 0.384);
+}
+.tabTitle{
+    position: absolute;
+    top: 35px;
+    left: auto;
+    font-family: 'CubaoWide';
+    font-size: 2rem;
+    color: var(--primary);
+    transition: .2s;
+}
+.tabTitle:hover{
+    letter-spacing: 2px;
+}
+
+.tabContent{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: fit-content;
+    width: 90%;
+    padding: 70px 50px 0px 50px;
+    top: 0px;
+    position: absolute;
+    font-family: 'ClaireMono', 'sans-serif';
+    font-size: 1.2rem;
+    color: rgb(255, 255, 255);
+    p{
+        position: relative;
+    }
+}
+
+/* Sample Tab */
+.sampleTab{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    margin-bottom: 10px;
+}
+.musicBox {
+    position: relative;
+    /* width: 100%; */
+    height: fit-content;
+    margin-top: 150px;
+}
+
+
+/* Artist Tab */
+.artistPage{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    min-height: 700px;
+    width: auto;
+    height: fit-content;
+    margin-bottom: 10px;
+}
+.aCard{
+    position: relative;
+    display: flex;
+    /* flex-direction: row; */
+    align-items: center;
+    /* justify-content: center; */
+    height: 550px;
+    min-width: 90%;
+    max-width: 300px;
+    padding: 0px 50px;
+    margin-top: 50px;
+    gap: 50px;
+    border-radius: 15px;
+    background-color: rgb(0, 0, 0);
+    overflow-x: hidden;
+    /* transition: .3s linear; */
+}
+.artist{
+    position: absolute;
+    right: -300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    height: 380px;
+    width: 250px;
+    border-radius: 15px;
+    background-color: rgb(51, 51, 51);
+    transition: .3s linear;
+    animation: slide7Cards linear 35s infinite;
+    animation-delay: calc(var(--lDelay,0) * -30s);
+    --aDelay: -350px;
+    img{
+        border-radius: 10px;
+        height: 250px;
+    }
+    .h4{
+        font-size: 1.5rem;
+        margin-bottom: -10px;
+        margin-top: 20px;
+    }
+    .para{
+        color: rgb(197, 197, 197);
+        font-size: 1rem;
+        padding: 0px 10px;
+    }
+}
+@keyframes slide7Cards {
+    from {
+        transform: translateX(0px);
+    }
+    to {
+        transform: translateX(calc(var(--aDelay)*7)); /* Exactly 1 card width */
+    }
+}
+.aCard:hover .artist {
+    animation-play-state: paused !important;
+    filter: grayscale(1);
+}
+.aCard .artist:hover {
+    filter: grayscale(0);
+    filter:invert(1);
+    img{
+        filter:invert(1);
+    }
+}
+
+/* Communication Tab*/
+.communication{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    max-height: fit-content;
+    min-height: 600px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.cCard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    height: 450px;
+    min-width: 90%;
+    max-width: 300px;
+    padding: 0px 50px;
+    margin-top: 50px;
+    gap: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+}
+.ccCard1, .ccCard2, .ccCard3{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    min-width: 20%;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background: var(--bgcolor);
+    transition: .3s;
+    img{
+        position: relative;
+        width: 300px;
+        height: 300px;
+        margin: -50px;
+        filter: invert(1);
+    }
+}
+.ccCard1:hover, .ccCard2:hover, .ccCard3:hover{
+    scale: 1.02;
+    color: var(--bgcolor);
+    background: rgb(255, 255, 255);
+    font-weight: bold;
+    letter-spacing: 4px;
+    img{
+        filter: invert(0);
+    }
+}
+
+/* TABLET — 768px and below */
+@media (max-width: 768px) {
+    .content{
+        margin: auto;
+        min-width: fit-content;
+    }
+    .intro_content{
+        /* width: 400px; */
+        padding: 20px 0px;
+    }
+    .id_Card{
+        height: 200px;
+    }
+    .id_content{
+        font-size: 16px;
+    }
+    .tabTitle{
+        font-size: 150%;
+    }
+    .tabContent{
+        font-size: 80%;
+    }
+    .aCard{
+    height: 450px;
+    min-width: 80%;
+    max-width: 200px;
+    }
+    .artist{
+    height: 300px;
+    width: 200px;
+    animation: slide7Cards linear 35s infinite;
+    animation-delay: calc(var(--lDelay,0) * -30s);
+    --aDelay: -300px;
+    img{
+        border-radius: 10px;
+        height: 205px;
+    }
+    .h4{
+        font-size: 1.2rem;
+        margin-bottom: -5px;
+        margin-top: 15px;
+    }
+    .para{
+        font-size: .8rem;
+        padding: 0px 10px;
+    }
+    }
+    .communication{
+        height: fit-content;
+        min-height: 380px;
+    }
+    .cCard{
+        height: 200px;
+        font-size: 1rem;
+        gap: 20px;
+        min-width: 70%;
+        max-width: 80px;
+    }
+    .ccCard1, .ccCard2, .ccCard3{
+        height: 50px;
+        padding: 10px;
+        p{
+            display: none;
+            position: relative;
+            font-size: 10px;
+            padding: 20px 10px;
+            margin-top: -30px;
+        }
+        img{
+            height: 100px;
+            width: 100px;
+        }
+    }
+    .ccCard1:hover, .ccCard2:hover, .ccCard3:hover{
+        letter-spacing: 2px;
+    }
+}
+
+/* MOBILE — 480px and below */
+@media (max-width: 480px) {
+    .sCard1, .sCard2, .sCard3{
+        height: 100px;
+    }
+}
+
