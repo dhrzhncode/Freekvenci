@@ -15,7 +15,7 @@
 
 :root{
     --primary: rgb(51, 255, 0);
-    --secondary: rgb(255, 123, 35);
+    --secondary: #ff7300;
 }
 .fake-scrollbar {
     position: fixed;
@@ -44,35 +44,33 @@
 html, body {
     scrollbar-width: none;       /* Firefox */
 }
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-
-
-
 body{
     padding: 0;
     margin:0;
     background-color: black;
     color: rgb(255, 255, 255);
     overflow-x: hidden;
+    width: 100vw;
+}
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 .top{
     position: relative;
     margin: 0;
     padding: 0;
-    width: 100.5%;
+    width: auto;
     height: fit-content;
     overflow: hidden;
 }
-
 #headT{
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     font-family: "CubaoWide", sans-serif;
     font-size: 1.5rem;
     background-color: rgb(255, 255, 255);
@@ -81,19 +79,15 @@ body{
     flex-direction: row;
     margin-left: 10px;
     margin: 0;
-    padding: 10px;
+    padding: 10px 10px;
     width: 98%;
     backdrop-filter: blur(10px);
 }
-#logo{
+#menu{
     position: relative;
+    margin-right: 10px;
     height: 25px;
-    margin: -5px;
-    margin-right: 5px;
-    /* img{
-        position: relative;
-        height: 25px;
-    } */
+    width: 25px;
 }
 
 .content{
@@ -101,7 +95,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: fit-content;
     width: auto;
     min-width: 600px;
     /* margin: 120px auto; */
@@ -140,6 +135,8 @@ body{
 .tabBg{
     background-color: rgba(61, 61, 61, 0.384);
 }
+
+
 .tabTitle{
     position: absolute;
     top: 35px;
@@ -148,9 +145,38 @@ body{
     font-size: 2rem;
     color: var(--primary);
     transition: .2s;
+    z-index: 10;
 }
 .tabTitle:hover{
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+}
+.ctChange{
+    color: var(--primary);
+    display: inline-block;
+    animation: shakeOut 0.5s ease-out forwards;
+}
+.ctChange:hover{
+    animation: shakeIn 0.5s ease-in forwards;
+}
+@keyframes shakeIn {
+    0% { transform: skewX(0deg); color: var(--primary); }
+    25% { transform: skewX(-10deg); }
+    50% { transform: skewX(10deg); }
+    75% { transform: skewX(-5deg); }
+    100% { 
+        transform: skewX(0deg); 
+        color: var(--secondary); /* Ends on the new color */
+    }
+}
+@keyframes shakeOut {
+    0% { transform: skewX(0deg); color: var(--secondary); }
+    25% { transform: skewX(10deg); }
+    50% { transform: skewX(-10deg); }
+    75% { transform: skewX(5deg); }
+    100% { 
+        transform: skewX(0deg);
+        color: var(--primary);
+    }
 }
 
 .tabContent{
@@ -169,24 +195,8 @@ body{
     color: rgb(255, 255, 255);
     p{
         position: relative;
+        /* cursor: none; */
     }
-}
-
-/* Sample Tab */
-.sampleTab{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 50px;
-    margin-bottom: 10px;
-}
-.musicBox {
-    position: relative;
-    /* width: 100%; */
-    height: fit-content;
-    margin-top: 150px;
 }
 
 
@@ -198,9 +208,10 @@ body{
     justify-content: center;
     align-items: center;
     padding: 50px;
-    min-height: 700px;
+    min-height: 750px;
+    max-height: fit-content;
     width: auto;
-    height: fit-content;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 .aCard{
@@ -270,6 +281,27 @@ body{
     }
 }
 
+
+/* Sample Tab */
+.sampleTab{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: fit-content;
+    min-height: 600px;
+    padding: 50px;
+    margin-bottom: 10px;
+}
+.musicBox {
+    position: relative;
+    /* width: 100%; */
+    height: fit-content;
+    margin-top: 150px;
+}
+
+
 /* Communication Tab*/
 .communication{
     position: relative;
@@ -279,7 +311,7 @@ body{
     align-items: center;
     padding: 50px;
     max-height: fit-content;
-    min-height: 600px;
+    min-height: 500px;
     margin-bottom: 10px;
     overflow: hidden;
 }
@@ -288,7 +320,7 @@ body{
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    height: 450px;
+    height: 350px;
     min-width: 90%;
     max-width: 300px;
     padding: 0px 50px;
@@ -298,13 +330,17 @@ body{
     overflow: hidden;
     background-color: rgb(0, 0, 0);
 }
+.cCard a {
+    text-decoration: none;
+    color: inherit;
+}
 .ccCard1, .ccCard2, .ccCard3{
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 300px;
+    height: 200px;
     min-width: 20%;
     max-width: 400px;
     padding: 20px;
@@ -315,7 +351,7 @@ body{
         position: relative;
         width: 300px;
         height: 300px;
-        margin: -50px;
+        margin: -90px;
         filter: invert(1);
     }
 }
@@ -330,8 +366,14 @@ body{
     }
 }
 
+
+
+
 /* TABLET — 768px and below */
 @media (max-width: 768px) {
+    body{
+        overflow-x: hidden;
+    }
     .content{
         margin: auto;
         min-width: fit-content;
